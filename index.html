@@ -13,7 +13,6 @@
       color: #222;
     }
 
-    /* Navigation */
     nav {
       background: linear-gradient(to right, #5b2c6f, #2874a6);
       padding: 1rem 2rem;
@@ -32,7 +31,6 @@
       color: #fdd835;
     }
 
-    /* About / Hero */
     #about {
       text-align: center;
       padding: 80px 20px;
@@ -54,14 +52,15 @@
       border-radius: 5px;
       font-weight: 600;
       cursor: pointer;
+      text-decoration: none;
       transition: all 0.3s;
+      display: inline-block;
     }
     .btn:hover {
       background: white;
       color: #7d3c98;
     }
 
-    /* Skills */
     #skills {
       padding: 60px 20px;
       background-color: #fff;
@@ -92,7 +91,6 @@
       background: #d2b4de;
     }
 
-    /* Projects */
     #projects {
       padding: 60px 20px;
       background-color: #fef9e7;
@@ -137,7 +135,6 @@
       background: #117a65;
     }
 
-    /* Contact */
     #contact {
       background: #5b2c6f;
       color: white;
@@ -153,7 +150,6 @@
       color: white;
     }
 
-    /* Footer */
     footer {
       background: #2c3e50;
       color: #ccc;
@@ -178,8 +174,13 @@
     <h1>Ganesh Kumar</h1>
     <p>Software Developer | Java Enthusiast | MSc Computer Science</p>
     <p>Email: <a href="mailto:ganeshkumar22j@gmail.com" style="color:#fdd835;">ganeshkumar22j@gmail.com</a></p>
-    <button class="btn" onclick="window.location.href='https://github.com/ganesh-kumar'">GitHub</button>
-    <button class="btn" onclick="window.location.href='https://linkedin.com/in/ganesh-kumar'">LinkedIn</button>
+
+    <!-- ✅ Resume Download Link -->
+    <a href="https://raw.githubusercontent.com/ganesh2-dev/ganesh-portfolio/main/Ganesh%20Resume.pdf" class="btn" download>Download Resume</a>
+
+    <!-- Social Links -->
+    <a class="btn" href="https://github.com/ganesh2-dev" target="_blank">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/k-kumar-27090a25b" target="_blank">LinkedIn</a>
   </section>
 
   <!-- Skills Section -->
@@ -215,7 +216,7 @@
     <div class="project">
       <img src="https://via.placeholder.com/350x200.png?text=Unified+Service+Provider" alt="Project Screenshot">
       <h3>Unified Service Provider System</h3>
-      <a href="https://github.com/ganesh2-dev/">View on GitHub</a>
+      <a href="https://github.com/ganesh2-dev/unified-service-provider" target="_blank">View on GitHub</a>
     </div>
   </section>
 
@@ -226,7 +227,10 @@
     <p>Email: <a href="mailto:ganeshkumar22j@gmail.com">ganeshkumar22j@gmail.com</a></p>
   </section>
 
-
+  <!-- Footer -->
+  <footer>
+    © 2025 Ganesh Kumar. All rights reserved.
+  </footer>
 
 </body>
 </html>
