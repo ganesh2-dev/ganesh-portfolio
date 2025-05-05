@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+     
+
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            
+            padding: 20px;
+            
+            
+        }
+
+        .order-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .order-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .order-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1976d2;
+            color: white;
+            margin-bottom: 15px;border-radius: 5px;
+            font-size: 16px;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <h2></h2>
+    <div class="order-form">
+      
+        
+     <form action="AddService" method="post" enctype="multipart/form-data">
+
+              <label for="name">Service Name:</label>
+        <input type="text" id="name" name="service" required>
+            <label for="image">Choose an image to upload:</label>
+    <input type="file" name="file" id="image" required><br><br>
+        <button type="submit">Submit</button>
+    </form></div>
+
+</body>
+</html>

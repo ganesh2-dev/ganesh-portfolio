@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services List</title>
+</head>
+<body>
+    <h2>Select a Service</h2>
+    <form action="processServiceSelection" method="POST">
+        <select name="service" id="service">
+            <c:forEach var="service" items="${servicesList}">
+                <option value="${service}">${service}</option>
+            </c:forEach>
+        </select>
+    </form>
+</body>
+</html>

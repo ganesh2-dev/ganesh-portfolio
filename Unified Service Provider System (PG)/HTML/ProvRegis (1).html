@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Fields with Border Color</title>
+    <style>
+        /* General Table Styling */
+             body {
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .order-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+          .order-form textarea{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .order-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: mediumorchid;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .order-form button:hover {
+            background-color: plum;
+        }
+        .order-form label{
+            color: mediumorchid;
+            font-size: 20px;
+        }
+        
+  
+</style>
+</head>
+<body><form method="post" action="DataInsert" enctype="multipart/form-data">
+        
+        <div class="order-form"><center>
+                <h1 style="color:mediumorchid;">Provider Registration Form</h1></center>
+
+ 
+        <label for="user">Username</label>
+        <input type="text" name="user" value="Provider" readonly required/>
+       
+        <label for="password">Password</label>
+        <input type="password" name="pass" required/>
+        
+        <label for="name">Name</label>
+        <input type="text" name="name" required/>
+          
+        <label for="address">Address</label> 
+        <textarea name="address" required></textarea>
+        
+        <label for="area">Area</label> 
+        <input type="text" required name="area"/>
+        
+        <label for="city">City</label>
+        <input type="text" name="city" required/> 
+         
+        <label for="pincode">Pincode</label>
+        <input type="number"  name="pincode" required/>
+            
+        <label for="email">Email</label>
+        <input type="email"  name="email" required/>
+           
+        <label for="phnno">Phone Number</label>
+        <input type="number" name="phnno" required/>
+            
+        <label for="photo">Photo</label>
+        <input type="file" name="photo" title="PDF format" accept="application/pdf" required/>
+            
+        <label for="idproof">ID Proof</label>
+        <input type="file" name="proof" title="like license" required/>
+    
+        <label for="service">Service</label>
+        <input type="text"  name="service" required/>
+       
+        <label for="wrktime">Working time</label>
+        <input type="text" name="wrktime"  required/>
+        
+        <label for="amount">Amount/hr</label>
+        <input type="number" name="amount"  required/>
+       
+       <button type="submit">Submit</button></div>
+
+</form></body>
+</html>

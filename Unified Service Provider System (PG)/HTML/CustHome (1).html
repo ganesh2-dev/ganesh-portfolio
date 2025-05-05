@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Homepage</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9; /* Light background color */
+            color: #333; /* Dark text color for contrast */
+        }
+
+        .container {
+            width: 100%;
+           
+        }
+
+
+        /* Navigation Links */
+        .link {
+            display: flex;
+            justify-content: space-evenly;
+           background: #2196f3; /* Blue background for navigation */
+            padding: 15px 0;
+        }
+
+        .link a {
+            color: white;
+            text-decoration: none;
+            padding: 30px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .link a:hover {
+            background-color: #1976d2; /* Darker blue on hover */
+            transform: scale(1); /* Slight hover effect */
+        }
+
+        .link a.active {
+            background-color: black; /* Vibrant orange for active link */
+            transform: scale(1.05); /* Slight hover effect for active state */
+        }
+
+        /* Content Styling */
+        .content {
+            padding: 10px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .link {
+                 align-items: center;
+            }
+
+            .link a {
+                margin: 5px 0;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+ 
+    <div class="link">
+        <h1>Welcome to Home Services</h1>
+        <a href="#" id="service-link">Book Services</a>
+        <a href="#" id="order-link">Order</a>
+        <a href="#" id="history-link">History</a>
+        <a href="#" id="edit-link">Edit</a>
+        <a href="#" id="suggestion-link">Add Suggestion</a>
+
+        <a href="First.html">Logout</a>
+    </div>
+
+
+    <div class="content" id="content">
+        <!-- The content will be dynamically loaded here -->
+    </div>
+
+</div>
+<script>
+  
+
+    const orderLink = document.getElementById('order-link');
+    const historyLink = document.getElementById('history-link');
+    const editLink = document.getElementById('edit-link');
+    const serviceLink = document.getElementById('service-link');
+    const suggestionLink=document.getElementById('suggestion-link');
+
+    const contentDiv = document.getElementById('content');
+    
+const links = document.querySelectorAll('.link a');
+    
+function removeActiveClass() {
+    links.forEach(link => {
+        link.classList.remove('active');
+    });
+}
+
+// Function to add active class to the clicked link
+function addActiveClass(link) {
+    removeActiveClass();
+    link.classList.add('active');
+}
+function fetchContent(url, fallbackContent) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            contentDiv.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
+            contentDiv.innerHTML = `<p>${fallbackContent}</p>`;
+        });
+}
+   
+       suggestionLink.addEventListener('click', function(event) {
+        event.preventDefault();  
+        addActiveClass(suggestionLink);
+ fetchContent('suggestion.html', 'No Customers entry');
+    });
+     orderLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+         addActiveClass(orderLink);
+    fetchContent('CustOrder', 'No orders found');
+    });
+       editLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+ addActiveClass(editLink);
+    fetchContent('EditCust', 'Not found');
+    });
+   
+
+    // Load content for the History link
+    historyLink.addEventListener('click', function(event) {
+        event.preventDefault(); 
+         addActiveClass(historyLink);
+    fetchContent('CustPast', 'No history found');
+           
+    });
+ 
+
+
+
+  serviceLink.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    addActiveClass(serviceLink);
+    fetchContent('ShowService', 'No service entry'); // Replace with the correct URL for customer list
+});
+</script>
+
+</body>
+</html>

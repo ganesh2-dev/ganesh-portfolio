@@ -1,0 +1,91 @@
+<html>
+<head>
+ 	<style>
+		label{
+			font-size: 20px;
+		}
+        dialog {
+            width: 500px;
+            height: 200px;
+      
+        padding: 20px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 30px;
+        background-color: #f4f4f9;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        flex-direction: column;  
+    
+        }
+        .dialog-content {
+            margin-bottom: 20px;
+           
+        }
+		select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #3f5efb,#fc466b;
+        }
+    </style>
+</head>
+<body><center>
+	<form method="post" action="post">
+    <dialog id="myDialog">
+        <h3>FEEDBACK:</h3>
+        <table>
+                <tr>
+                    <td>
+                        <input type="radio" id="option1" name="choice" value="Bad" onclick="redirectToPage()"> 
+                        <label for="option1">Bad</label><br>
+					</td>
+					<td>
+						<input type="radio" id="option2" name="choice" value="Average" onclick="redirectToPage()"> 
+                        <label for="option2">Average</label><br>
+					</td>
+					<td>
+						<input type="radio" id="option2" name="choice" value="Good" onclick="redirectToPage()"> 
+                        <label for="option2">Good</label><br>
+					</td>
+										<td>
+						<input type="radio" id="option2" name="choice" value="Best" onclick="redirectToPage()"> 
+                        <label for="option2">Best</label><br>
+					</td>
+				</tr>
+            </table>
+    </dialog>
+   
+        </form></center>
+       <script>
+        // Open the dialog box automatically when the page loads
+        window.onload = function() {
+            document.getElementById('myDialog').showModal();
+        }
+
+        // Function to handle redirect based on radio button selection
+        function redirectToPage() {
+            // Get the selected radio button's value
+            var selectedOption = document.querySelector('input[name="choice"]:checked').value;
+
+            // Redirect based on the selected value
+            if (selectedOption === "Bad") {
+                window.location.href = "Bad.html"; 
+            } else if (selectedOption === "Average"){
+                window.location.href = "Average.html"; 
+            } else if(selectedOption === "Good"){
+                window.location.href = "Good.html"; 
+            } else{
+				window.location.href="Best.html";
+			}
+        }
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Homepage</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9; /* Light background color */
+            color: #333; /* Dark text color for contrast */
+        }
+
+        .container {
+            width: 100%;
+           
+        }
+
+
+        /* Navigation Links */
+        .link {
+            display: flex;
+            justify-content: space-evenly;
+           background: #2196f3; /* Blue background for navigation */
+            padding: 15px 0;
+        }
+
+        .link a {
+            color: white;
+            text-decoration: none;
+            padding: 30px ;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .link a:hover {
+            background-color: #1976d2; /* Darker blue on hover */
+          }
+
+        .link a.active {
+            background-color: black; /* Vibrant orange for active link */
+             }
+
+        /* Content Styling */
+        .content {
+            padding: 10px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .link {
+                 align-items: center;
+            }
+
+            .link a {
+                margin: 5px 0;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <form method="get">
+        <div class="container">
+       
+            <div class="link">
+                <h1>ADMIN HOMEPAGE </h1>
+                <a href="#" id="provider-link">Providers List</a>
+                <a href="#" id="customer-link">Customers List</a>
+                <a href="#" id="order-link">Order</a>
+                <a href="#" id="service-link">Add Service</a>
+                <a href="#" id="suggestion-link">Suggestion</a>
+                <a href="First.html">Logout</a>
+            </div>
+            
+            <div class="content" id="content">
+                <!-- The content will be dynamically loaded here -->
+            </div>
+        </div>
+    </form>
+
+    <script>
+        window.onload = function() {
+            providerLink.click();  // Simulate a click on the Customer link after the page loads
+        };
+
+        // Get the links and content div
+        const orderLink = document.getElementById('order-link');
+        const customerLink = document.getElementById('customer-link');
+        const providerLink = document.getElementById('provider-link');
+        const suggestionLink = document.getElementById('suggestion-link');
+        const serviceLink = document.getElementById('service-link');
+        const contentDiv = document.getElementById('content');
+        const links = document.querySelectorAll('.link a');
+
+        // Function to remove the active class from all links
+        function removeActiveClass() {
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+
+        // Function to add active class to the clicked link
+        function addActiveClass(link) {
+            removeActiveClass();
+            link.classList.add('active');
+        }
+
+        // Function to handle fetching content dynamically
+        function fetchContent(url, fallbackContent) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    contentDiv.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                    contentDiv.innerHTML = `<p>${fallbackContent}</p>`;
+                });
+        }
+
+        // Load content for the Order link
+        orderLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            addActiveClass(orderLink);
+            fetchContent('AdminOrder', 'No Orders'); // Replace with the actual URL for orders
+        });
+         serviceLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            addActiveClass(serviceLink);
+            fetchContent('services.html', 'No Orders'); // Replace with the actual URL for orders
+        });
+
+        // Load content for the Suggestion link
+        suggestionLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            addActiveClass(suggestionLink);
+            fetchContent('ShowSugg', 'No Suggestions'); // Replace with the actual URL for suggestions
+        });
+
+        // Load content for the Customer List link
+        customerLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            addActiveClass(customerLink);
+            fetchContent('CustList', 'No Customers entry'); // Replace with the correct URL for customer list
+        });
+
+        // Load content for the Provider List link
+        providerLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            addActiveClass(providerLink);
+            fetchContent('ProvList', 'No Providers entry'); // Replace with the correct URL for provider list
+        });
+    </script>
+</body>
+</html>

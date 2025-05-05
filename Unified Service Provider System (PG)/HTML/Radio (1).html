@@ -1,0 +1,80 @@
+<html>
+<head>
+ 	<style>
+          
+        body{
+            
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7; /* Very light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0
+        }
+        
+        dialog {
+            width: 500px;
+            height: 200px;
+            padding: 20px;
+            
+           border: 2px solid #2196f3;
+            border-radius: 8px;
+            text-align: center;
+             font-size: 30px;
+        }
+     
+       
+        .dialog-content {
+            margin-bottom: 20px;
+           
+        }label {
+    font-size: 30px;
+    color: #2196f3; /* Blue text */
+}
+
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #3f5efb,#fc466b;
+        }
+    </style>
+</head>
+<body>
+	<form method="post">
+    <dialog id="myDialog">
+        <h3 style="color:#2196f3">Select an option to continue:</h3>
+            <input type="radio" id="option1" name="choice" value="Customer" onclick="redirectToPage()"> 
+            <label for="option1">Customer</label><br>
+
+            <input type="radio" id="option2" name="choice" value="Provider" onclick="redirectToPage()"> 
+            <label for="option2">Service Provider</label><br>
+    </dialog>
+   
+</form>
+       <script>
+        // Open the dialog box automatically when the page loads
+        window.onload = function() {
+            document.getElementById('myDialog').showModal();
+        }
+
+        // Function to handle redirect based on radio button selection
+        function redirectToPage() {
+            // Get the selected radio button's value
+            var selectedOption = document.querySelector('input[name="choice"]:checked').value;
+
+            // Redirect based on the selected value
+            if (selectedOption === "Provider") {
+                window.location.href = "AvailableService"; // Redirect to page1.html
+            } else {
+                window.location.href = "CustRegis"; // Redirect to page2.html
+            } 
+        }
+    </script>
+    
+
+</body>
+</html>

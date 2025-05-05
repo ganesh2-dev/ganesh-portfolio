@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converted Layout</title>
+    <style>
+        /* Set up the layout using CSS Grid */
+        .container {
+            display: grid;
+            grid-template-rows: 16% 8% 60% 16%; /* Same as the row heights in the original frameset */
+            grid-template-columns: 50% 50%; /* Same as the column widths in the original frameset */
+            height: 100vh;
+        }
+
+.header {
+    background-color: #007bff;
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    padding: 20px;
+    color: white;
+    display: flex;  /* Use flexbox to align items */
+    flex-direction: column; /* Stack the elements vertically */
+    justify-content: center;  /* Center the elements vertically */
+    align-items: center;  /* Center the elements horizontally */
+    text-align: center;  /* Center text */
+}
+
+/* Styling for the h1 */
+.header h1 {
+    margin: 0;  /* Remove default margin */
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    text-align: center;  /* Center the title */
+}
+
+/* Styling for the paragraph */
+.header p {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;  /* Add space between h1 and p */
+    text-align: center;  /* Ensure the text is centered */
+}
+
+        /* Content and Sidebar sections */
+        .order, .history {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .order {
+            grid-row: 2;
+            grid-column: 1;
+            background-color: #67aaff;
+        }
+
+        .history {
+            grid-row: 2;
+            grid-column: 2;
+            text-align: center;
+            background-color: #67aaff;;
+        }
+
+        .order h1, .history h1 {
+            font-size: 28px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Content section */
+        .content {
+            grid-row: 3;
+            grid-column: 1 / span 2;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Footer section */
+        .footer {
+            grid-row: 4;
+            grid-column: 1 / span 2;
+           background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        } .header img {
+            margin-top: 10px;
+            width: 50px; /* Set the width as needed */
+            height: auto;
+        }
+
+        iframe {
+            width: 99%;
+            height: 100%;
+            border: none;background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+   
+    <div class="header">
+        <h1>Welcome to Home Services</h1>
+         <p>Your trusted platform for finding local service providers</p>
+      
+    </div>
+    <div class="order" onclick="loadPage('order')">
+        <h1>Orders</h1>
+    </div>
+    <div class="history" onclick="loadPage('history')">
+        <h1>History</h1>
+    </div>
+    <div class="content" id="content">
+      
+    </div>
+    <div class="footer">
+ <p>&copy; 2025 My Website | Privacy Policy | Terms of Service</p>
+    </div>
+</div>
+
+<script>
+    function loadPage(page) {
+        const contentDiv = document.getElementById('content');
+
+        // Use fetch to load HTML content dynamically
+        if (page === 'order') {
+            fetch('http://localhost:8080/Demo/AdminValidate')
+                .then(response => response.text())
+                .then(data => {
+                    contentDiv.innerHTML = data;  // Inject content of 'First.html'
+                });
+           
+        } else if (page === 'history') {
+            fetch('http://localhost:8080/Demo/AdminValidate')
+                .then(response => response.text())
+                .then(data => {
+                    contentDiv.innerHTML = data;  // Inject content of 'ProvRegis.html'
+                });
+          
+        }
+    }
+</script>
+
+</body>
+</html> 
